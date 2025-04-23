@@ -15,6 +15,11 @@ client = TelegramClient('bot_session', api_id, api_hash).start(bot_token=bot_tok
 @client.on(events.NewMessage)
 async def handler(event):
     sender = await event.get_sender()
+
+    # ⛔️ Пропускаем сообщения от самого бота
+    if sender.is_self:
+        return
+
     message = event.raw_text
     print(f"\n--- Новое сообщение ---")
     print(f"От: {sender.username} (ID: {sender.id})")
