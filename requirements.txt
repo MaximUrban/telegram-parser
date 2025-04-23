@@ -1,1 +1,3 @@
 telethon
+pymorphy2
+rapidfuzz
